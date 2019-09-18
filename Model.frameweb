@@ -3,12 +3,36 @@
   <compose xsi:type="frameweb:EntityModel" name="Entity Model">
     <packagedElement xsi:type="frameweb:DomainPackage" name="Entity Package">
       <packagedElement xsi:type="frameweb:DomainClass" name="Usuário">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="email" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="email" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="senha" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="telefone" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="foto" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainClass" name="Quadra"/>
+      <packagedElement xsi:type="frameweb:DomainClass" name="Quadra">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="tipo" visibility="private" type="//@compose.0/Entity%20Package/TipoQuadra"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lat" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lng" visibility="private"/>
+      </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Time">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="abreviacao" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="brasao" visibility="private"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="membro" memberEnd="//@compose.0/Entity%20Package/membro/Source //@compose.0/Entity%20Package/membro/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/membro/Source"/>
@@ -26,9 +50,169 @@
       <packagedElement xsi:type="frameweb:DomainClass" name="Agendamento">
         <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="DiaHora"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainClass" name="Endereco"/>
+      <packagedElement xsi:type="frameweb:DomainClass" name="Endereco">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Logradouro" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Bairro" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="CEP" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Número" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Complemento" visibility="private"/>
+      </packagedElement>
       <packagedElement xsi:type="uml:Enumeration" name="Modalidade"/>
-      <packagedElement xsi:type="uml:Enumeration" name="TipoQuadra"/>
+      <packagedElement xsi:type="uml:Enumeration" name="TipoQuadra">
+        <ownedLiteral name="AREIA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
+        <ownedLiteral name="SINTÉTICA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
+        <ownedLiteral name="GRAMA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
+        <ownedLiteral name="POLIESPORTIVA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="administra" memberEnd="//@compose.0/Entity%20Package/administra/Source //@compose.0/Entity%20Package/administra/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/administra/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/administra/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/administra"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Usuário" association="//@compose.0/Entity%20Package/administra"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Time" association="//@compose.0/Entity%20Package/administra">
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainClass" name="Cidade">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainClass" name="UF">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="sigla" visibility="private"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="pertence" memberEnd="//@compose.0/Entity%20Package/pertence/Source //@compose.0/Entity%20Package/pertence/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Endereco" association="//@compose.0/Entity%20Package/pertence">
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Cidade" association="//@compose.0/Entity%20Package/pertence"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="pertence" memberEnd="//@compose.0/Entity%20Package/pertence.1/Source //@compose.0/Entity%20Package/pertence.1/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.1/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.1/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.1"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Cidade" association="//@compose.0/Entity%20Package/pertence.1">
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/UF" association="//@compose.0/Entity%20Package/pertence.1"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainClass" name="País">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="pertence" memberEnd="//@compose.0/Entity%20Package/pertence.2/Source //@compose.0/Entity%20Package/pertence.2/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.2/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.2/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.2"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/UF" association="//@compose.0/Entity%20Package/pertence.2">
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/País" association="//@compose.0/Entity%20Package/pertence.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="localizada_em" memberEnd="//@compose.0/Entity%20Package/localizada_em/Source //@compose.0/Entity%20Package/localizada_em/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/localizada_em/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/localizada_em/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/localizada_em"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Quadra" association="//@compose.0/Entity%20Package/localizada_em">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Endereco" association="//@compose.0/Entity%20Package/localizada_em"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="agenda" memberEnd="//@compose.0/Entity%20Package/agenda/Source //@compose.0/Entity%20Package/agenda/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/agenda/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/agenda/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/agenda"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Usuário" association="//@compose.0/Entity%20Package/agenda">
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Agendamento" association="//@compose.0/Entity%20Package/agenda">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="reserva" memberEnd="//@compose.0/Entity%20Package/reserva/Source //@compose.0/Entity%20Package/reserva/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/reserva/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/reserva/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/reserva"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Agendamento" association="//@compose.0/Entity%20Package/reserva">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Quadra" association="//@compose.0/Entity%20Package/reserva"/>
+      </packagedElement>
     </packagedElement>
+  </compose>
+  <compose xsi:type="frameweb:NavigationModel" name="Cadastrar Usuário">
+    <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
+      <packagedElement xsi:type="frameweb:Page" name="cadastro_usuario.xhtml">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/View%20Package/frmCadastroUsuario" association="//@compose.1/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="frmCadastroUsuario">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/View%20Package/cadastro_usuario.xhtml"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="nome">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="email">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="senha">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputSecret"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="telefone">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.1/View%20Package/cadastro_usuario.xhtml/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/View%20Package/cadastro_usuario.xhtml" association="//@compose.1/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="home.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="CadastroUsuarioController">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="novoUsuario" methodType="//@compose.0/Entity%20Package/Usuário"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/View%20Package/frmCadastroUsuario" supplier="//@compose.1/Controller%20Package/CadastroUsuarioController" method="//@compose.1/Controller%20Package/CadastroUsuarioController/novoUsuario"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.1/Controller%20Package/CadastroUsuarioController" supplier="//@compose.1/View%20Package/home.xhtml" resultMethod="//@compose.1/Controller%20Package/CadastroUsuarioController/novoUsuario">
+      <resultDependencyConstraint result="sucess"/>
+    </packagedElement>
+  </compose>
+  <compose xsi:type="frameweb:NavigationModel" name="Agendamento">
+    <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
+      <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/View%20Package/agendamentoForm" association="//@compose.2/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="agendamentoForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="data"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="modalidade"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="quadra"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.2/View%20Package/mapa.xhtml/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/View%20Package/mapa.xhtml" association="//@compose.2/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="agendamentoController">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento" methodType="//@compose.0/Entity%20Package/Agendamento"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="listarAgendamentos">
+          <methodType xsi:type="uml:Class" href="Java.frameweb#//@compose.0/List"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="quadrasController">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="listarQuadras">
+          <methodType xsi:type="uml:Class" href="Java.frameweb#//@compose.0/List"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/agendamentoForm" supplier="//@compose.2/Controller%20Package/agendamentoController" method="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/Controller%20Package/agendamentoController" supplier="//@compose.2/View%20Package/mapa.xhtml" resultMethod="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento">
+      <resultDependencyConstraint ajax="true" result="true"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/agendamentoForm" supplier="//@compose.2/Controller%20Package/agendamentoController" method="//@compose.2/Controller%20Package/agendamentoController/listarAgendamentos"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/mapa.xhtml" supplier="//@compose.2/Controller%20Package/quadrasController" method="//@compose.2/Controller%20Package/quadrasController/listarQuadras"/>
   </compose>
 </frameweb:FramewebProject>
