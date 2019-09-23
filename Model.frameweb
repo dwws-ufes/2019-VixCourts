@@ -48,7 +48,12 @@
         </ownedEnd>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Agendamento">
-        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="DiaHora"/>
+        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraInicio" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraFim" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Endereco">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Logradouro" visibility="private"/>
@@ -142,6 +147,7 @@
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Quadra" association="//@compose.0/Entity%20Package/reserva"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Quadra>"/>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Cadastrar Usuário">
@@ -171,6 +177,7 @@
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="CadastroUsuarioController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="usuario" type="//@compose.0/Entity%20Package/Usuário"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="novoUsuario" methodType="//@compose.0/Entity%20Package/Usuário"/>
       </packagedElement>
     </packagedElement>
@@ -179,40 +186,79 @@
       <resultDependencyConstraint result="sucess"/>
     </packagedElement>
   </compose>
-  <compose xsi:type="frameweb:NavigationModel" name="Agendamento">
+  <compose xsi:type="frameweb:NavigationModel" name="Buscar Quadra">
     <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
       <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/View%20Package/agendamentoForm" association="//@compose.2/View%20Package/@packagedElement.2"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="agendamentoForm">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="data"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="modalidade"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="quadra"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="tipoQuadra">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="quadra">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.2/View%20Package/mapa.xhtml/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/View%20Package/mapa.xhtml" association="//@compose.2/View%20Package/@packagedElement.2"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="agendamentoController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="agendamento" type="//@compose.0/Entity%20Package/Agendamento"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento" methodType="//@compose.0/Entity%20Package/Agendamento"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="listarAgendamentos">
-          <methodType xsi:type="uml:Class" href="Java.frameweb#//@compose.0/List"/>
-        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="quadrasController">
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="listarQuadras">
-          <methodType xsi:type="uml:Class" href="Java.frameweb#//@compose.0/List"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarQuadrasDisponiveis" methodType="//@compose.0/Entity%20Package/List%3CQuadra%3E">
+          <ownedParameter name="HoraInicio">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="HoraFim">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="Local" type="//@compose.0/Entity%20Package/Endereco"/>
+          <ownedParameter name="TipoQuadra" type="//@compose.0/Entity%20Package/TipoQuadra"/>
         </ownedOperation>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/agendamentoForm" supplier="//@compose.2/Controller%20Package/agendamentoController" method="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/Controller%20Package/agendamentoController" supplier="//@compose.2/View%20Package/mapa.xhtml" resultMethod="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento">
-      <resultDependencyConstraint ajax="true" result="true"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/mapa.xhtml" supplier="//@compose.2/Controller%20Package/quadrasController" method="//@compose.2/Controller%20Package/quadrasController/buscarQuadrasDisponiveis"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/Controller%20Package/quadrasController" supplier="//@compose.2/View%20Package/mapa.xhtml" resultMethod="//@compose.2/Controller%20Package/quadrasController/buscarQuadrasDisponiveis">
+      <resultDependencyConstraint ajax="true" result="success"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/agendamentoForm" supplier="//@compose.2/Controller%20Package/agendamentoController" method="//@compose.2/Controller%20Package/agendamentoController/listarAgendamentos"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/mapa.xhtml" supplier="//@compose.2/Controller%20Package/quadrasController" method="//@compose.2/Controller%20Package/quadrasController/listarQuadras"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/Controller%20Package/agendamentoController" supplier="//@compose.2/View%20Package/meusagendamentos.xhtml" resultMethod="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento">
+      <resultDependencyConstraint result="success"/>
+    </packagedElement>
+  </compose>
+  <compose xsi:type="frameweb:PersistenceModel" name="Persistence Model">
+    <packagedElement xsi:type="frameweb:PersistencePackage" name="Persistence Package">
+      <packagedElement xsi:type="frameweb:DAOInterface" name="Interface DAO"/>
+    </packagedElement>
+  </compose>
+  <compose xsi:type="frameweb:ApplicationModel" name="Application Model"/>
+  <compose xsi:type="frameweb:NavigationModel" name="BuscarTime">
+    <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
+      <packagedElement xsi:type="frameweb:Page" name="buscarPartidas">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.5/View%20Package/buscarPartidasForm" association="//@compose.5/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="buscarPartidasForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="rua"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.5/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.5/View%20Package/buscarPartidas/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.5/View%20Package/buscarPartidas" association="//@compose.5/View%20Package/@packagedElement.2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="buscarPartidasController">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarPartidas"/>
+      </packagedElement>
+    </packagedElement>
   </compose>
 </frameweb:FramewebProject>
