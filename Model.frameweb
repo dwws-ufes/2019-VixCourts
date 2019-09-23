@@ -148,6 +148,28 @@
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Quadra" association="//@compose.0/Entity%20Package/reserva"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Quadra>"/>
+      <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Agendamento>"/>
+      <packagedElement xsi:type="frameweb:DomainClass" name="SolicitacaoJogo"/>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="relacionada_a" memberEnd="//@compose.0/Entity%20Package/relacionada_a/Source //@compose.0/Entity%20Package/relacionada_a/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/relacionada_a/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/relacionada_a/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/relacionada_a"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/SolicitacaoJogo" association="//@compose.0/Entity%20Package/relacionada_a">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Agendamento" association="//@compose.0/Entity%20Package/relacionada_a"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="solicita" memberEnd="//@compose.0/Entity%20Package/solicita/Source //@compose.0/Entity%20Package/solicita/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/solicita/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/solicita/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/solicita"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Usuário" association="//@compose.0/Entity%20Package/solicita"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/SolicitacaoJogo" association="//@compose.0/Entity%20Package/solicita">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Cadastrar Usuário">
@@ -178,7 +200,9 @@
     <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="CadastroUsuarioController">
         <ownedAttribute xsi:type="frameweb:IOParameter" name="usuario" type="//@compose.0/Entity%20Package/Usuário"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="novoUsuario" methodType="//@compose.0/Entity%20Package/Usuário"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="novoUsuario">
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/View%20Package/frmCadastroUsuario" supplier="//@compose.1/Controller%20Package/CadastroUsuarioController" method="//@compose.1/Controller%20Package/CadastroUsuarioController/novoUsuario"/>
@@ -213,7 +237,9 @@
     <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="agendamentoController">
         <ownedAttribute xsi:type="frameweb:IOParameter" name="agendamento" type="//@compose.0/Entity%20Package/Agendamento"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento" methodType="//@compose.0/Entity%20Package/Agendamento"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento">
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="quadrasController">
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarQuadrasDisponiveis" methodType="//@compose.0/Entity%20Package/List%3CQuadra%3E">
@@ -245,20 +271,39 @@
   <compose xsi:type="frameweb:ApplicationModel" name="Application Model"/>
   <compose xsi:type="frameweb:NavigationModel" name="BuscarTime">
     <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
-      <packagedElement xsi:type="frameweb:Page" name="buscarPartidas">
+      <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.5/View%20Package/buscarPartidasForm" association="//@compose.5/View%20Package/@packagedElement.2"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="buscarPartidasForm">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="rua"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="modalidade" type="//@compose.0/Entity%20Package/Modalidade"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.5/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.5/View%20Package/buscarPartidas/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.5/View%20Package/buscarPartidas" association="//@compose.5/View%20Package/@packagedElement.2"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.5/View%20Package/@packagedElement.2/@ownedEnd.0 //@compose.5/View%20Package/mapa.xhtml/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.5/View%20Package/mapa.xhtml" association="//@compose.5/View%20Package/@packagedElement.2"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="Controller Package">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="buscarPartidasController">
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarPartidas"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarPartidas" methodType="//@compose.0/Entity%20Package/List%3CAgendamento%3E">
+          <ownedParameter name="modalidade" type="//@compose.0/Entity%20Package/Modalidade"/>
+          <ownedParameter name="endereco" type="//@compose.0/Entity%20Package/Endereco"/>
+        </ownedOperation>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="solicitacaoController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="solicitacao" visibility="private" type="//@compose.0/Entity%20Package/SolicitacaoJogo"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="solicitarPartida">
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.5/View%20Package/mapa.xhtml" supplier="//@compose.5/Controller%20Package/buscarPartidasController" method="//@compose.5/Controller%20Package/buscarPartidasController/buscarPartidas"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.5/Controller%20Package/buscarPartidasController" supplier="//@compose.5/View%20Package/mapa.xhtml" resultMethod="//@compose.5/Controller%20Package/buscarPartidasController/buscarPartidas">
+      <resultDependencyConstraint ajax="true" result="success"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.5/View%20Package/buscarPartidasForm" supplier="//@compose.5/Controller%20Package/solicitacaoController" method="//@compose.5/Controller%20Package/solicitacaoController/solicitarPartida"/>
+    <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.5/Controller%20Package/solicitacaoController" supplier="//@compose.5/View%20Package/meusagendamentos.xhtml" resultMethod="//@compose.5/Controller%20Package/solicitacaoController/solicitarPartida">
+      <resultDependencyConstraint result="success"/>
     </packagedElement>
   </compose>
 </frameweb:FramewebProject>
