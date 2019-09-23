@@ -12,10 +12,10 @@
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="senha" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="telefone" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="telefone" visibility="private" isNull="true">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="foto" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="foto" visibility="private" isNull="true">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
       </packagedElement>
@@ -24,15 +24,23 @@
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="tipo" visibility="private" type="//@compose.0/Entity%20Package/TipoQuadra"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lat" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lng" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lat" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/Double"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lng" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/Double"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Time">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="abreviacao" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="brasao" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="abreviacao" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="brasao" visibility="private" isNull="true">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="membro" memberEnd="//@compose.0/Entity%20Package/membro/Source //@compose.0/Entity%20Package/membro/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/membro/Source"/>
@@ -48,21 +56,38 @@
         </ownedEnd>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Agendamento">
-        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraInicio" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraInicio" visibility="private" isUnique="false">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraFim" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="HoraFim" visibility="private" isUnique="false">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Endereco">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Logradouro" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Bairro" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="CEP" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Número" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Complemento" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Logradouro" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Bairro" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="CEP" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Número" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="Complemento" visibility="private" isNull="true">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="uml:Enumeration" name="Modalidade"/>
+      <packagedElement xsi:type="uml:Enumeration" name="Modalidade">
+        <ownedLiteral name="FUTEBOL" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+        <ownedLiteral name="BASQUETE" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+        <ownedLiteral name="VOLEI" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+        <ownedLiteral name="HANDBOL" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+        <ownedLiteral name="FUTSAL" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+        <ownedLiteral name="TENIS" classifier="//@compose.0/Entity%20Package/Modalidade"/>
+      </packagedElement>
       <packagedElement xsi:type="uml:Enumeration" name="TipoQuadra">
         <ownedLiteral name="AREIA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
         <ownedLiteral name="SINTÉTICA" classifier="//@compose.0/Entity%20Package/TipoQuadra"/>
@@ -79,11 +104,17 @@
         </ownedEnd>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Cidade">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="UF">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="sigla" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="sigla" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="pertence" memberEnd="//@compose.0/Entity%20Package/pertence/Source //@compose.0/Entity%20Package/pertence/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence/Source"/>
@@ -104,7 +135,9 @@
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/UF" association="//@compose.0/Entity%20Package/pertence.1"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="País">
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private"/>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="pertence" memberEnd="//@compose.0/Entity%20Package/pertence.2/Source //@compose.0/Entity%20Package/pertence.2/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/pertence.2/Source"/>
@@ -204,6 +237,12 @@
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.1/Controller%20Package/@packagedElement.1/Source //@compose.1/Controller%20Package/@packagedElement.1/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.1/Controller%20Package/@packagedElement.1/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.1/Controller%20Package/@packagedElement.1/Target"/>
+        <ownedEnd name="Source" type="//@compose.1/Controller%20Package/CadastroUsuarioController" association="//@compose.1/Controller%20Package/@packagedElement.1"/>
+        <ownedEnd name="Target" type="//@compose.4/Application%20Package/cadastroUsuarioService" association="//@compose.1/Controller%20Package/@packagedElement.1"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/View%20Package/frmCadastroUsuario" supplier="//@compose.1/Controller%20Package/CadastroUsuarioController" method="//@compose.1/Controller%20Package/CadastroUsuarioController/novoUsuario"/>
     <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.1/Controller%20Package/CadastroUsuarioController" supplier="//@compose.1/View%20Package/home.xhtml" resultMethod="//@compose.1/Controller%20Package/CadastroUsuarioController/novoUsuario">
@@ -253,6 +292,18 @@
           <ownedParameter name="TipoQuadra" type="//@compose.0/Entity%20Package/TipoQuadra"/>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/Controller%20Package/@packagedElement.2/Source //@compose.2/Controller%20Package/@packagedElement.2/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/Controller%20Package/@packagedElement.2/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/Controller%20Package/@packagedElement.2/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/Controller%20Package/quadrasController" association="//@compose.2/Controller%20Package/@packagedElement.2"/>
+        <ownedEnd name="Target" type="//@compose.4/Application%20Package/quadraService" association="//@compose.2/Controller%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/Controller%20Package/@packagedElement.3/Source //@compose.2/Controller%20Package/@packagedElement.3/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/Controller%20Package/@packagedElement.3/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/Controller%20Package/@packagedElement.3/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/Controller%20Package/agendamentoController" association="//@compose.2/Controller%20Package/@packagedElement.3"/>
+        <ownedEnd name="Target" type="//@compose.4/Application%20Package/agendamentoService" association="//@compose.2/Controller%20Package/@packagedElement.3"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/agendamentoForm" supplier="//@compose.2/Controller%20Package/agendamentoController" method="//@compose.2/Controller%20Package/agendamentoController/salvarAgendamento"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/View%20Package/mapa.xhtml" supplier="//@compose.2/Controller%20Package/quadrasController" method="//@compose.2/Controller%20Package/quadrasController/buscarQuadrasDisponiveis"/>
@@ -265,10 +316,108 @@
   </compose>
   <compose xsi:type="frameweb:PersistenceModel" name="Persistence Model">
     <packagedElement xsi:type="frameweb:PersistencePackage" name="Persistence Package">
-      <packagedElement xsi:type="frameweb:DAOInterface" name="Interface DAO"/>
+      <packagedElement xsi:type="frameweb:DAOInterface" name="UsuarioDAO"/>
+      <packagedElement xsi:type="frameweb:DAOInterface" name="QuadraDAO"/>
+      <packagedElement xsi:type="frameweb:DAOInterface" name="AgendamentoDAO"/>
+      <packagedElement xsi:type="frameweb:DAOInterface" name="EnderecoDAO"/>
+      <packagedElement xsi:type="frameweb:DAOClass" name="UsuarioDAOJPA"/>
+      <packagedElement xsi:type="frameweb:DAOClass" name="QuadraDAOJPA">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorDisponibilidade"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOClass" name="AgendamentoDAOJPA">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorModalidade"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorEndereco"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOClass" name="EnderecoDAOJPA"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/Persistence%20Package/UsuarioDAOJPA" supplier="//@compose.3/Persistence%20Package/UsuarioDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/Persistence%20Package/QuadraDAOJPA" supplier="//@compose.3/Persistence%20Package/QuadraDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/Persistence%20Package/AgendamentoDAOJPA" supplier="//@compose.3/Persistence%20Package/AgendamentoDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/Persistence%20Package/EnderecoDAOJPA" supplier="//@compose.3/Persistence%20Package/EnderecoDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization"/>
+      <packagedElement xsi:type="frameweb:DAORealization"/>
+      <packagedElement xsi:type="frameweb:DAOClass" name="SolicitacaoDAOJPA"/>
+      <packagedElement xsi:type="frameweb:DAOInterface" name="SolicitacaoDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/Persistence%20Package/SolicitacaoDAOJPA" supplier="//@compose.3/Persistence%20Package/SolicitacaoDAO"/>
     </packagedElement>
   </compose>
-  <compose xsi:type="frameweb:ApplicationModel" name="Application Model"/>
+  <compose xsi:type="frameweb:ApplicationModel" name="Application Model">
+    <packagedElement xsi:type="frameweb:ApplicationPackage" name="Application Package">
+      <packagedElement xsi:type="frameweb:ServiceClass" name="cadastroUsuarioServiceImpl">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="novoUsuario">
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="agendamentoServiceImpl">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="salvarAgendamento()"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarPartidas"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="quadraServiceImpl">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarQuadrasDisponiveis">
+          <ownedParameter name="HoraInicio">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="HoraFim">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="Local" type="//@compose.0/Entity%20Package/Endereco"/>
+          <ownedParameter name="TipoQuadra" type="//@compose.0/Entity%20Package/TipoQuadra"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.3/Source //@compose.4/Application%20Package/@packagedElement.3/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.3/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.3/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/cadastroUsuarioServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.3"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/UsuarioDAO" association="//@compose.4/Application%20Package/@packagedElement.3"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.4/Source //@compose.4/Application%20Package/@packagedElement.4/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.4/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.4/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/cadastroUsuarioServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.4"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/EnderecoDAO" association="//@compose.4/Application%20Package/@packagedElement.4"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.5/Source //@compose.4/Application%20Package/@packagedElement.5/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.5/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.5/Target"/>
+        <ownedEnd name="Source" association="//@compose.4/Application%20Package/@packagedElement.5"/>
+        <ownedEnd name="Target" association="//@compose.4/Application%20Package/@packagedElement.5"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.6/Source //@compose.4/Application%20Package/@packagedElement.6/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.6/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.6/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/quadraServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.6"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/QuadraDAO" association="//@compose.4/Application%20Package/@packagedElement.6"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.7/Source //@compose.4/Application%20Package/@packagedElement.7/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.7/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.7/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/agendamentoServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.7"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/QuadraDAO" association="//@compose.4/Application%20Package/@packagedElement.7"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.8/Source //@compose.4/Application%20Package/@packagedElement.8/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.8/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.8/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/agendamentoServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.8"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/AgendamentoDAO" association="//@compose.4/Application%20Package/@packagedElement.8"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="solicitacaoServiceImpl">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="solicitarPartida()"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="cadastroUsuarioService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/Application%20Package/cadastroUsuarioServiceImpl" supplier="//@compose.4/Application%20Package/cadastroUsuarioService"/>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="quadraService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/Application%20Package/quadraServiceImpl" supplier="//@compose.4/Application%20Package/quadraService"/>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="agendamentoService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/Application%20Package/agendamentoServiceImpl" supplier="//@compose.4/Application%20Package/agendamentoService"/>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="solicitacaoService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/Application%20Package/solicitacaoServiceImpl" supplier="//@compose.4/Application%20Package/solicitacaoService"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/Application%20Package/@packagedElement.18/Source //@compose.4/Application%20Package/@packagedElement.18/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.18/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/Application%20Package/@packagedElement.18/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/Application%20Package/solicitacaoServiceImpl" association="//@compose.4/Application%20Package/@packagedElement.18"/>
+        <ownedEnd name="Target" type="//@compose.3/Persistence%20Package/SolicitacaoDAO" association="//@compose.4/Application%20Package/@packagedElement.18"/>
+      </packagedElement>
+    </packagedElement>
+  </compose>
   <compose xsi:type="frameweb:NavigationModel" name="BuscarTime">
     <packagedElement xsi:type="frameweb:ViewPackage" name="View Package">
       <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
@@ -294,6 +443,18 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="solicitarPartida">
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.5/Controller%20Package/@packagedElement.2/Source //@compose.5/Controller%20Package/@packagedElement.2/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.5/Controller%20Package/@packagedElement.2/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.5/Controller%20Package/@packagedElement.2/Target"/>
+        <ownedEnd name="Source" type="//@compose.5/Controller%20Package/buscarPartidasController" association="//@compose.5/Controller%20Package/@packagedElement.2"/>
+        <ownedEnd name="Target" type="//@compose.4/Application%20Package/agendamentoService" association="//@compose.5/Controller%20Package/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.5/Controller%20Package/@packagedElement.3/Source //@compose.5/Controller%20Package/@packagedElement.3/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.5/Controller%20Package/@packagedElement.3/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.5/Controller%20Package/@packagedElement.3/Target"/>
+        <ownedEnd name="Source" type="//@compose.5/Controller%20Package/solicitacaoController" association="//@compose.5/Controller%20Package/@packagedElement.3"/>
+        <ownedEnd name="Target" type="//@compose.4/Application%20Package/solicitacaoService" association="//@compose.5/Controller%20Package/@packagedElement.3"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.5/View%20Package/mapa.xhtml" supplier="//@compose.5/Controller%20Package/buscarPartidasController" method="//@compose.5/Controller%20Package/buscarPartidasController/buscarPartidas"/>
