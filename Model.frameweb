@@ -2,7 +2,7 @@
 <frameweb:FramewebProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:frameweb="http://nemo.inf.ufes.br/projects/frameweb/FW-2015" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <compose xsi:type="frameweb:EntityModel" name="Entity Model">
     <packagedElement xsi:type="frameweb:DomainPackage" name="br.inf.ufes.vixcourts.entity">
-      <packagedElement xsi:type="frameweb:DomainClass" name="Usuário">
+      <packagedElement xsi:type="frameweb:DomainClass" name="Usuario">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
@@ -50,7 +50,7 @@
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuário" association="//@compose.0/br.inf.ufes.vixcourts.entity/membro">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario" association="//@compose.0/br.inf.ufes.vixcourts.entity/membro">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
@@ -98,7 +98,7 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/administra/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/administra/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/administra"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuário" association="//@compose.0/br.inf.ufes.vixcourts.entity/administra"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario" association="//@compose.0/br.inf.ufes.vixcourts.entity/administra"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Time" association="//@compose.0/br.inf.ufes.vixcourts.entity/administra">
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
@@ -148,7 +148,7 @@
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/País" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.2"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="localizada_em" memberEnd="//@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Source //@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Target">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="localizada_em" memberEnd="//@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Source //@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Target" cascade="persist">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/localizada_em/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/localizada_em"/>
@@ -162,7 +162,7 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/agenda/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/agenda/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/agenda"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuário" association="//@compose.0/br.inf.ufes.vixcourts.entity/agenda">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario" association="//@compose.0/br.inf.ufes.vixcourts.entity/agenda">
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Agendamento" association="//@compose.0/br.inf.ufes.vixcourts.entity/agenda">
@@ -182,7 +182,12 @@
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Quadra>"/>
       <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Agendamento>"/>
-      <packagedElement xsi:type="frameweb:DomainClass" name="SolicitacaoJogo"/>
+      <packagedElement xsi:type="frameweb:DomainClass" name="SolicitacaoJogo">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="mensagem" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="status" visibility="private" type="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
+      </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="relacionada_a" memberEnd="//@compose.0/br.inf.ufes.vixcourts.entity/relacionada_a/Source //@compose.0/br.inf.ufes.vixcourts.entity/relacionada_a/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/relacionada_a/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/relacionada_a/Target"/>
@@ -197,42 +202,53 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/solicita/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/solicita/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/solicita"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuário" association="//@compose.0/br.inf.ufes.vixcourts.entity/solicita"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario" association="//@compose.0/br.inf.ufes.vixcourts.entity/solicita"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/SolicitacaoJogo" association="//@compose.0/br.inf.ufes.vixcourts.entity/solicita">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
       </packagedElement>
+      <packagedElement xsi:type="uml:Enumeration" name="StatusSolicitacao">
+        <ownedLiteral name="SOLICITADO" classifier="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
+        <ownedLiteral name="RECUSADO" classifier="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
+        <ownedLiteral name="ACEITO" classifier="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
+      </packagedElement>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Cadastrar Usuário">
     <packagedElement xsi:type="frameweb:ViewPackage" name="br.inf.ufes.vixcourts.view">
-      <packagedElement xsi:type="frameweb:Page" name="cadastro_usuario.xhtml">
+      <packagedElement xsi:type="frameweb:Page" name="cadastro_usuario">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/br.inf.ufes.vixcourts.view/frmCadastroUsuario" association="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="frmCadastroUsuario">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario.xhtml"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="nome">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.nome">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="email">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.email">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="senha">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputSecret"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.senha">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/password"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="telefone">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.telefone">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="repetirSenha">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/password"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario.xhtml/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario.xhtml" association="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario" association="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Page" name="home.xhtml"/>
+      <packagedElement xsi:type="frameweb:Page" name="home"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="br.inf.ufes.vixcourts.controller">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="CadastroUsuarioController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="usuario" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuário"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="usuario" visibility="private" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="repetirSenha" visibility="private">
+          <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="novoUsuario">
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
@@ -245,37 +261,49 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/br.inf.ufes.vixcourts.view/frmCadastroUsuario" supplier="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController" method="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController/novoUsuario"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController" supplier="//@compose.1/br.inf.ufes.vixcourts.view/home.xhtml" resultMethod="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController/novoUsuario">
-      <resultDependencyConstraint result="sucess"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController" supplier="//@compose.1/br.inf.ufes.vixcourts.view/home" resultMethod="//@compose.1/br.inf.ufes.vixcourts.controller/CadastroUsuarioController/novoUsuario">
+      <resultDependencyConstraint result="success"/>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Buscar Quadra">
     <packagedElement xsi:type="frameweb:ViewPackage" name="br.inf.ufes.vixcourts.view">
-      <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
+      <packagedElement xsi:type="frameweb:Page" name="mapa">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/br.inf.ufes.vixcourts.view/agendamentoForm" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/br.inf.ufes.vixcourts.view/buscarQuadrasForm" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.5"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="agendamentoForm">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaInicio">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaFim">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.quadra">
+          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.2/br.inf.ufes.vixcourts.view/mapa/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/br.inf.ufes.vixcourts.view/mapa" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos"/>
+      <packagedElement xsi:type="frameweb:UIComponent" name="buscarQuadrasForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="tipoQuadra">
           <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="quadra">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
-        </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.2/br.inf.ufes.vixcourts.view/mapa.xhtml/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/br.inf.ufes.vixcourts.view/mapa.xhtml" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.5/@ownedEnd.0 //@compose.2/br.inf.ufes.vixcourts.view/mapa/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/br.inf.ufes.vixcourts.view/mapa" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.5"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="br.inf.ufes.vixcourts.controller">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AgendamentoController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="agendamento" type="//@compose.0/br.inf.ufes.vixcourts.entity/Agendamento"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="agendamento" visibility="private" type="//@compose.0/br.inf.ufes.vixcourts.entity/Agendamento"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento">
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
@@ -306,11 +334,11 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/agendamentoForm" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController" method="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController/salvarAgendamento"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/mapa.xhtml" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" method="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/mapa.xhtml" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/mapa" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" method="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/mapa" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis">
       <resultDependencyConstraint ajax="true" result="success"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/meusagendamentos.xhtml" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController/salvarAgendamento">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/meusagendamentos" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController/salvarAgendamento">
       <resultDependencyConstraint result="success"/>
     </packagedElement>
   </compose>
@@ -322,11 +350,27 @@
       <packagedElement xsi:type="frameweb:DAOInterface" name="EnderecoDAO"/>
       <packagedElement xsi:type="frameweb:DAOClass" name="UsuarioDAOJPA"/>
       <packagedElement xsi:type="frameweb:DAOClass" name="QuadraDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorDisponibilidade"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorDisponibilidade" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CQuadra%3E">
+          <ownedParameter name="horaInicio">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="horaFim">
+            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
+          </ownedParameter>
+          <ownedParameter name="Endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="AgendamentoDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorModalidade"/>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorEndereco"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorModalidade" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CAgendamento%3E">
+          <ownedParameter name="modalidade" type="//@compose.0/br.inf.ufes.vixcourts.entity/Modalidade"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorEndereco" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CAgendamento%3E">
+          <ownedParameter name="endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="buscarPorModalidadeEndereco" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CAgendamento%3E">
+          <ownedParameter name="modalidade" type="//@compose.0/br.inf.ufes.vixcourts.entity/Modalidade"/>
+          <ownedParameter name="endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="EnderecoDAOJPA"/>
       <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.3/br.inf.ufes.vixcourts.persistence/UsuarioDAOJPA" supplier="//@compose.3/br.inf.ufes.vixcourts.persistence/UsuarioDAO"/>
@@ -344,15 +388,22 @@
     <packagedElement xsi:type="frameweb:ApplicationPackage" name="br.inf.ufes.vixcourts.application">
       <packagedElement xsi:type="frameweb:ServiceClass" name="cadastroUsuarioServiceImpl">
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="novoUsuario">
+          <ownedParameter name="usuario"/>
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="agendamentoServiceImpl">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="salvarAgendamento()"/>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarPartidas"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="salvarAgendamento">
+          <ownedParameter name="agendamento" type="//@compose.0/br.inf.ufes.vixcourts.entity/Agendamento"/>
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarPartidas" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CAgendamento%3E">
+          <ownedParameter name="modalidade" type="//@compose.0/br.inf.ufes.vixcourts.entity/Modalidade"/>
+          <ownedParameter name="endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="quadraServiceImpl">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarQuadrasDisponiveis">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="buscarQuadrasDisponiveis" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CQuadra%3E">
           <ownedParameter name="HoraInicio">
             <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
           </ownedParameter>
@@ -372,35 +423,26 @@
       <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4/Target"/>
-        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/cadastroUsuarioServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4"/>
-        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/EnderecoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4"/>
+        <ownedEnd name="Source" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4"/>
+        <ownedEnd name="Target" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.4"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5/Target"/>
-        <ownedEnd name="Source" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5"/>
-        <ownedEnd name="Target" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5"/>
+        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/quadraServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5"/>
+        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/QuadraDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.5"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6/Source"/>
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6/Target"/>
-        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/quadraServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6"/>
-        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/QuadraDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6"/>
-      </packagedElement>
-      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7/Target"/>
-        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/agendamentoServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7"/>
-        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/QuadraDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.7"/>
-      </packagedElement>
-      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8/Target"/>
-        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/agendamentoServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8"/>
-        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/AgendamentoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.8"/>
+        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/agendamentoServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6"/>
+        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/AgendamentoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.6"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="solicitacaoServiceImpl">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="solicitarPartida()"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="solicitarPartida">
+          <ownedParameter name="solicitacao" type="//@compose.0/br.inf.ufes.vixcourts.entity/SolicitacaoJogo"/>
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceInterface" name="cadastroUsuarioService"/>
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/br.inf.ufes.vixcourts.application/cadastroUsuarioServiceImpl" supplier="//@compose.4/br.inf.ufes.vixcourts.application/cadastroUsuarioService"/>
@@ -410,11 +452,17 @@
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/br.inf.ufes.vixcourts.application/agendamentoServiceImpl" supplier="//@compose.4/br.inf.ufes.vixcourts.application/agendamentoService"/>
       <packagedElement xsi:type="frameweb:ServiceInterface" name="solicitacaoService"/>
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.4/br.inf.ufes.vixcourts.application/solicitacaoServiceImpl" supplier="//@compose.4/br.inf.ufes.vixcourts.application/solicitacaoService"/>
-      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18/Target"/>
-        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/solicitacaoServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18"/>
-        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/SolicitacaoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.18"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/solicitacaoServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16"/>
+        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/SolicitacaoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.16"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17/Source //@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17/Target"/>
+        <ownedEnd name="Source" type="//@compose.4/br.inf.ufes.vixcourts.application/quadraServiceImpl" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17"/>
+        <ownedEnd name="Target" type="//@compose.3/br.inf.ufes.vixcourts.persistence/EnderecoDAO" association="//@compose.4/br.inf.ufes.vixcourts.application/@packagedElement.17"/>
       </packagedElement>
     </packagedElement>
   </compose>
@@ -422,14 +470,28 @@
     <packagedElement xsi:type="frameweb:ViewPackage" name="br.inf.ufes.vixcourts.view">
       <packagedElement xsi:type="frameweb:Page" name="mapa.xhtml">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.5/br.inf.ufes.vixcourts.view/buscarPartidasForm" association="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.5/br.inf.ufes.vixcourts.view/solicitarPartidaForm" association="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.5"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="buscarPartidasForm">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="modalidade" type="//@compose.0/br.inf.ufes.vixcourts.entity/Modalidade"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="modalidade">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/selectOneMenu"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.5/br.inf.ufes.vixcourts.view/mapa.xhtml/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.5/br.inf.ufes.vixcourts.view/mapa.xhtml" association="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
+      <packagedElement xsi:type="frameweb:UIComponent" name="solicitarPartidaForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="solicitacao.agendamento">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/selectOneMenu"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="solicitacao.mensagem">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.5/@ownedEnd.0 //@compose.5/br.inf.ufes.vixcourts.view/mapa.xhtml/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.5/br.inf.ufes.vixcourts.view/mapa.xhtml" association="//@compose.5/br.inf.ufes.vixcourts.view/@packagedElement.5"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="br.inf.ufes.vixcourts.controller">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="BuscarPartidasController">
@@ -461,10 +523,10 @@
     <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.5/br.inf.ufes.vixcourts.controller/BuscarPartidasController" supplier="//@compose.5/br.inf.ufes.vixcourts.view/mapa.xhtml" resultMethod="//@compose.5/br.inf.ufes.vixcourts.controller/BuscarPartidasController/buscarPartidas">
       <resultDependencyConstraint ajax="true" result="success"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.5/br.inf.ufes.vixcourts.view/buscarPartidasForm" supplier="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController" method="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController/solicitarPartida"/>
     <packagedElement xsi:type="frameweb:Page" name="meusagendamentos.xhtml"/>
     <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController" supplier="//@compose.5/br.inf.ufes.vixcourts.view/meusagendamentos.xhtml" resultMethod="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController/solicitarPartida">
       <resultDependencyConstraint result="success"/>
     </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.5/br.inf.ufes.vixcourts.view/solicitarPartidaForm" supplier="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController" method="//@compose.5/br.inf.ufes.vixcourts.controller/SolicitacaoController/solicitarPartida"/>
   </compose>
 </frameweb:FramewebProject>
