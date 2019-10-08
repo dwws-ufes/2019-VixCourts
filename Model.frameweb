@@ -30,12 +30,13 @@
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="lng" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/Double"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="modalidade" visibility="private" type="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CModalidade%3E"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Time">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="abreviacao" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="abreviacao" visibility="private" size="3">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="brasao" visibility="private" isNull="true">
@@ -100,6 +101,7 @@
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/administra"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario" association="//@compose.0/br.inf.ufes.vixcourts.entity/administra"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Time" association="//@compose.0/br.inf.ufes.vixcourts.entity/administra">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
       </packagedElement>
@@ -112,7 +114,7 @@
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="nome" visibility="private">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="sigla" visibility="private">
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="sigla" visibility="private" size="2">
           <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
       </packagedElement>
@@ -121,6 +123,7 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/Cidade" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence"/>
@@ -130,6 +133,7 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.1/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.1"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/Cidade" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.1">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/UF" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.1"/>
@@ -144,6 +148,7 @@
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.2/Target"/>
         <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.2"/>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/br.inf.ufes.vixcourts.entity/UF" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.2">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
         <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/br.inf.ufes.vixcourts.entity/País" association="//@compose.0/br.inf.ufes.vixcourts.entity/pertence.2"/>
@@ -213,6 +218,7 @@
         <ownedLiteral name="RECUSADO" classifier="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
         <ownedLiteral name="ACEITO" classifier="//@compose.0/br.inf.ufes.vixcourts.entity/StatusSolicitacao"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainClass" name="List&lt;Modalidade>"/>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Cadastrar Usuário">
@@ -223,16 +229,16 @@
       <packagedElement xsi:type="frameweb:UIComponent" name="frmCadastroUsuario">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario"/>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.nome">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.email">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.senha">
           <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/password"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="usuario.telefone">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="repetirSenha">
           <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/password"/>
@@ -241,7 +247,11 @@
       <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/br.inf.ufes.vixcourts.view/cadastro_usuario" association="//@compose.1/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Page" name="home"/>
+      <packagedElement xsi:type="frameweb:Page" name="home">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="mapa">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/button"/>
+        </ownedAttribute>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="br.inf.ufes.vixcourts.controller">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="CadastroUsuarioController">
@@ -351,7 +361,7 @@
           <ownedParameter name="horaFim">
             <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
           </ownedParameter>
-          <ownedParameter name="Endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
+          <ownedParameter name="endereco" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="AgendamentoDAOJPA">
@@ -382,7 +392,7 @@
     <packagedElement xsi:type="frameweb:ApplicationPackage" name="br.inf.ufes.vixcourts.application">
       <packagedElement xsi:type="frameweb:ServiceClass" name="cadastroUsuarioServiceImpl">
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="novoUsuario">
-          <ownedParameter name="usuario"/>
+          <ownedParameter name="usuario" type="//@compose.0/br.inf.ufes.vixcourts.entity/Usuario"/>
           <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
       </packagedElement>
