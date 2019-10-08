@@ -9,7 +9,7 @@ Instructions on how to deploy from scratch are listed below. If you need detaile
 
 2. Install [WildFly 17.x](http://wildfly.org) and create a Server configuration within Eclipse;
 
-3. Install [MySQL](http://www.mysql.com/products/community/) and create a schema called `pooptime` and a user called `dwws` with password `dwws` and full access to the homonymous database;
+3. Install [MySQL](http://www.mysql.com/products/community/) and create a schema called `vixcourts` and a user called `dwws` with password `dwws` and full access to the homonymous database;
 
 4. Configure [the MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/) in WildFly;
 
