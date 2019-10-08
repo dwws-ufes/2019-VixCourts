@@ -273,28 +273,32 @@
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="agendamentoForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaInicio">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/calendar"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaFim">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/calendar"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.quadra">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/selectOneMenu"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2/@ownedEnd.0 //@compose.2/br.inf.ufes.vixcourts.view/mapa/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/br.inf.ufes.vixcourts.view/mapa" association="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.2"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos"/>
-      <packagedElement xsi:type="frameweb:UIComponent" name="buscarQuadrasForm">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaInicio">
-          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
+      <packagedElement xsi:type="frameweb:Page" name="meusagendamentos">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="minhaAgenda">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/schedule"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="horaFim">
-          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/inputText"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="buscarQuadrasForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaInicio">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/calendar"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="agendamento.horaFim">
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/calendar"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="tipoQuadra">
-          <type xsi:type="frameweb:Tag" href="Jsf.frameweb#//@configures.0/JSFhtml/selectOneMenu"/>
+          <type xsi:type="frameweb:Tag" href="frameweb/jbutler/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/PrimeFaces/selectOneMenu"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.view/@packagedElement.5/@ownedEnd.0 //@compose.2/br.inf.ufes.vixcourts.view/mapa/@ownedAttribute.1">
@@ -309,15 +313,11 @@
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="QuadrasController">
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarQuadrasDisponiveis" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CQuadra%3E">
-          <ownedParameter name="HoraInicio">
-            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
-          </ownedParameter>
-          <ownedParameter name="HoraFim">
-            <type xsi:type="uml:Class" href="Java.frameweb#//@compose.0/DateTime"/>
-          </ownedParameter>
-          <ownedParameter name="Local" type="//@compose.0/br.inf.ufes.vixcourts.entity/Endereco"/>
-          <ownedParameter name="TipoQuadra" type="//@compose.0/br.inf.ufes.vixcourts.entity/TipoQuadra"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="agendamento" type="//@compose.0/br.inf.ufes.vixcourts.entity/Agendamento"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="tipoQuadra" type="//@compose.0/br.inf.ufes.vixcourts.entity/TipoQuadra"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="buscarQuadrasDisponiveis" methodType="//@compose.0/br.inf.ufes.vixcourts.entity/List%3CQuadra%3E"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="salvarAgendamento">
+          <methodType xsi:type="uml:PrimitiveType" href="Java.frameweb#//@compose.0/boolean"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/br.inf.ufes.vixcourts.controller/@packagedElement.2/Source //@compose.2/br.inf.ufes.vixcourts.controller/@packagedElement.2/Target">
@@ -334,13 +334,13 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/agendamentoForm" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController" method="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController/salvarAgendamento"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/mapa" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" method="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis"/>
     <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/mapa" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis">
       <resultDependencyConstraint ajax="true" result="success"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController" supplier="//@compose.2/br.inf.ufes.vixcourts.view/meusagendamentos" resultMethod="//@compose.2/br.inf.ufes.vixcourts.controller/AgendamentoController/salvarAgendamento">
       <resultDependencyConstraint result="success"/>
     </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/br.inf.ufes.vixcourts.view/buscarQuadrasForm" supplier="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController" method="//@compose.2/br.inf.ufes.vixcourts.controller/QuadrasController/buscarQuadrasDisponiveis"/>
   </compose>
   <compose xsi:type="frameweb:PersistenceModel" name="Persistence Model">
     <packagedElement xsi:type="frameweb:PersistencePackage" name="br.inf.ufes.vixcourts.persistence">
