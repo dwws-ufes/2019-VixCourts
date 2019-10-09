@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui" template="/admin.xhtml">
 
@@ -18,25 +19,49 @@
 
     <ui:define name="menu">
         <ul class="sidebar-menu">
+        	<li class="header"><h:outputText value="#{msgsCore['core.menu.dashboard']}" /></li>
             <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
                     <i class="fa fa-home"></i>
-                    <span><h:outputText value="#{msgs['menu.home']}" /></span>
+                    <span><h:outputText value="#{msgsCore['core.menu.home']}" /></span>
                 </p:link></li>
-            <li class="header">Header</li>
+            <li class="header"><h:outputText value="#{msgsCore['core.menu.team']}" /></li>
+            <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-user"></i>
+                    <span><h:outputText value="#{msgsCore['core.menu.team.players']}" /></span>
+                </p:link>
+            </li>
             <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
                     <i class="fa fa-calendar"></i>
-                    <span>Blank Link</span>
-                </p:link></li>
+                    <span><h:outputText value="#{msgsCore['core.menu.team.matches']}" /></span>
+                </p:link>
+            </li>
+            <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-wrench"></i>
+                    <span><h:outputText value="#{msgsCore['core.menu.team.manager']}" /></span>
+                </p:link>
+            </li>
+            
             <li class="header"><h:outputText value="#{msgsCore['core.menu.admin']}" /></li>
 			<li><p:link outcome="/core/manageQuadras/index" onclick="clearBreadCrumbs()">
-				<i class="fa fa-calendar"></i>
-				<span><h:outputText value="#{msgsCore['core.menu.admin.manageQuadras']}" /></span>
-			</p:link></li>
+					<i class="fa fa-soccer-ball-o"></i>
+					<span><h:outputText value="#{msgsCore['core.menu.admin.manageQuadras']}" /></span>
+				</p:link>
+			</li>
+			<li><p:link outcome="/core/manageQuadras/index" onclick="clearBreadCrumbs()">
+					<i class="fa fa-group"></i>
+					<span><h:outputText value="#{msgsCore['core.menu.admin.manageTeams']}" /></span>
+				</p:link>
+			</li>
+			<li><p:link outcome="/core/manageQuadras/index" onclick="clearBreadCrumbs()">
+					<i class="fa fa-users"></i>
+					<span><h:outputText value="#{msgsCore['core.menu.admin.manageUsers']}" /></span>
+				</p:link>
+			</li>
        	</ul>
     </ui:define>
 
     <ui:define name="top-menu">
-
+    
     </ui:define>
 
     <ui:define name="footer">

@@ -26,18 +26,8 @@
 <ui:define name="body">
 	<h:form id="entitiesForm">
 		<p:panelGrid columns="2" columnClasses="ui-grid-col-4,ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="yearField" value="#{msgsCore['manageQuadras.field.year']}" />
-			<p:inputText id="yearField" value="#{manageQuadrasController.selectedEntity.year}" style="width: 100%;" />
 			<p:outputLabel for="nameField" value="#{msgsCore['manageQuadras.field.name']} " />
 			<p:inputText id="nameField" value="#{manageQuadrasController.selectedEntity.name}" style="width: 100%;" />
-			<p:outputLabel for="acronymField" value="#{msgsCore['manageQuadras.field.acronym']}" />
-			<p:inputText id="acronymField" value="#{manageQuadrasController.selectedEntity.acronym}" style="width: 100%;" />
-			<p:outputLabel for="submissionDeadlineField" value="#{msgsCore['manageQuadras.field.submissionDeadline']}" />
-			<p:calendar id="submissionDeadlineField" value="#{manageQuadrasController.selectedEntity.submissionDeadline}" showOn="button"
-				pattern="dd/MM/yyyy" mask="true" style="width: 100%;" />
-			<p:outputLabel for="reviewDeadlineField" value="#{msgsCore['manageQuadras.field.reviewDeadline']}" />
-			<p:calendar id="reviewDeadlineField" value="#{manageQuadrasController.selectedEntity.reviewDeadline}" showOn="button" pattern="dd/MM/yyyy"
-				mask="true" style="width: 100%;" />
 		</p:panelGrid>
 		<p:commandButton id="cancelButton" value="#{msgs['jbutler.crud.button.cancel']}" icon="fa fa-close"
 			action="#{manageQuadrasController.list}" immediate="true" rendered="#{! manageQuadrasController.readOnly}" />
