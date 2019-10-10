@@ -24,5 +24,11 @@ private static final long serialVersionUID = 1L;
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public int compareTo(Quadra arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
