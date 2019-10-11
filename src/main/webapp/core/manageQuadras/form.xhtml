@@ -28,6 +28,22 @@
 		<p:panelGrid columns="2" columnClasses="ui-grid-col-4,ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank">
 			<p:outputLabel for="nameField" value="#{msgsCore['manageQuadras.field.name']} " />
 			<p:inputText id="nameField" value="#{manageQuadrasController.selectedEntity.name}" style="width: 100%;" />
+      		
+			<p:outputLabel for="tipoField" value="#{msgsCore['manageQuadras.field.tipo']} " />
+
+       		<p:selectOneMenu id="tipoField" value="#{manageQuadrasController.selectedEntity.tipo}" style="width:100%">
+            	<f:selectItem itemLabel="Select One" itemValue="" />
+            	<f:selectItem itemLabel="Soccer" itemValue="Soccer" />
+            	<f:selectItem itemLabel="Basketball" itemValue="Basketball" />
+            	<f:selectItem itemLabel="Volleyball" itemValue="Volleyball" />
+            	<f:selectItem itemLabel="Beach Tenis" itemValue="Beach Tenis" />
+            	<f:selectItem itemLabel="Beach Soccer" itemValue="Beach Soccer" />
+        	</p:selectOneMenu>
+        	
+			<p:outputLabel for="latitudeField" value="#{msgsCore['manageQuadras.field.latitude']} " />
+			<p:inputText id="latitudeField" value="#{manageQuadrasController.selectedEntity.lat}" style="width: 100%;" />
+			<p:outputLabel for="longitudeField" value="#{msgsCore['manageQuadras.field.longitude']} " />
+			<p:inputText id="longitudeField" value="#{manageQuadrasController.selectedEntity.lng}" style="width: 100%;" />
 		</p:panelGrid>
 		<p:commandButton id="cancelButton" value="#{msgs['jbutler.crud.button.cancel']}" icon="fa fa-close"
 			action="#{manageQuadrasController.list}" immediate="true" rendered="#{! manageQuadrasController.readOnly}" />
@@ -37,5 +53,29 @@
 		<p:commandButton id="backButton" value="#{msgs['jbutler.crud.button.back']}" icon="fa fa-arrow-circle-left"
 			action="#{manageQuadrasController.list}" immediate="true" rendered="#{manageQuadrasController.readOnly}" />
 	</h:form>
+	<br/>
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript">
+	     var currentMarker = null;
+	      
+	     function handlePointClick(event) {
+	         if(currentMarker === null) {
+		         	
+	             currentMarker = new google.maps.Marker({
+	                 position:new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+	             });
+	
+	             PF('map').addOverlay(currentMarker);
+	         }   
+	     }
+     </script>
+	<p:gmap center="-20.302190, -40.301970" zoom="13" type="HYBRID" style="width:100%;height:500px"
+		model="#{manageQuadrasController.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map"
+	>
+        
+        <p:ajax event="pointSelect" listener="#{manageQuadrasController.onPointSelect}" update="messages :entitiesForm:latitudeField :entitiesForm:longitudeField" /> 
+          
+    </p:gmap>
 </ui:define>
 </ui:composition>
