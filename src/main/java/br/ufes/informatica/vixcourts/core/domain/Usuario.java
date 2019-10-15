@@ -1,7 +1,6 @@
 package br.ufes.informatica.vixcourts.core.domain;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;

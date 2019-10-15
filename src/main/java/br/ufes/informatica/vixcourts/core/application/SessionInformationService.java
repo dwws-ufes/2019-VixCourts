@@ -48,55 +48,55 @@ public class SessionInformationService implements SessionInformation {
 
 	/** @see br.org.feees.sigme.core.application.SessionInformation#login(java.lang.String, java.lang.String) */
 	@Override
-	public void login(String Usuarioname, String password) throws LoginFailedException {
+	public void login(String username, String password) throws LoginFailedException {
 		try {
-			// Obtains the Usuario given the e-mail address (that serves as Usuarioname).
-			logger.log(Level.FINER, "Authenticating Usuario with Usuarioname \"{0}\"...", Usuarioname);
-			Usuario Usuario = UsuarioDAO.retrieveByEmail(Usuarioname);
-
-			// Creates the MD5 hash of the password for comparison.
+			
 			String md5pwd = TextUtils.produceMd5Hash(password);
+			System.out.println(md5pwd);
+			// Obtains the Usuario given the e-mail address (that serves as username).
+			logger.log(Level.FINER, "Authenticating Usuario with username \"{0}\"...", username);
+			Usuario Usuario = UsuarioDAO.retrieveByEmail(username);
 
 			// Checks if the passwords match.
 			String pwd = Usuario.getPassword();
 			if ((pwd != null) && (pwd.equals(md5pwd))) {
-				logger.log(Level.FINEST, "Passwords match for Usuario \"{0}\".", Usuarioname);
+				logger.log(Level.FINEST, "Passwords match for Usuario \"{0}\".", username);
 
 				// Login successful. Registers the current Usuario in the session.
-				logger.log(Level.FINE, "Usuario \"{0}\" successfully logged in.", Usuarioname);
+				logger.log(Level.FINE, "Usuario \"{0}\" successfully logged in.", username);
 				currentUsuario = Usuario;
 				pwd = null;
 
 				// Registers the Usuario login.
 				Date now = new Date(System.currentTimeMillis());
-				logger.log(Level.FINER, "Setting last login date for Usuario with Usuarioname \"{0}\" as \"{1}\"...", new Object[] { currentUsuario.getEmail(), now });
+				logger.log(Level.FINER, "Setting last login date for Usuario with username \"{0}\" as \"{1}\"...", new Object[] { currentUsuario.getEmail(), now });
 				currentUsuario.setLastLoginDate(now);
 				UsuarioDAO.save(currentUsuario);
 			}
 			else {
 				// Passwords don't match.
-				logger.log(Level.INFO, "Usuario \"{0}\" not logged in: password didn't match.", Usuarioname);
+				logger.log(Level.INFO, "Usuario \"{0}\" not logged in: password didn't match.", username);
 				throw new LoginFailedException(LoginFailedException.LoginFailedReason.INCORRECT_PASSWORD);
 			}
 		}
 		catch (PersistentObjectNotFoundException e) {
-			// No Usuario was found with the given Usuarioname.
-			logger.log(Level.INFO, "Usuario \"{0}\" not logged in: no registered Usuario found with given Usuarioname.", Usuarioname);
+			// No Usuario was found with the given username.
+			logger.log(Level.INFO, "Usuario \"{0}\" not logged in: no registered Usuario found with given username.", username);
 			throw new LoginFailedException(e, LoginFailedException.LoginFailedReason.UNKNOWN_USERNAME);
 		}
 		catch (MultiplePersistentObjectsFoundException e) {
-			// Multiple Usuarios were found with the same Usuarioname.
-			logger.log(Level.WARNING, "Usuario \"{0}\" not logged in: there are more than one registered Usuario with the given Usuarioname.", Usuarioname);
+			// Multiple Usuarios were found with the same username.
+			logger.log(Level.WARNING, "Usuario \"{0}\" not logged in: there are more than one registered Usuario with the given username.", username);
 			throw new LoginFailedException(e, LoginFailedException.LoginFailedReason.MULTIPLE_USERS);
 		}
 		catch (EJBTransactionRolledbackException e) {
 			// Unknown original cause. Throw the EJB exception.
-			logger.log(Level.WARNING, "Usuario \"" + Usuarioname + "\" not logged in: unknown cause.", e);
+			logger.log(Level.WARNING, "Usuario \"" + username + "\" not logged in: unknown cause.", e);
 			throw e;
 		}
 		catch (NoSuchAlgorithmException e) {
 			// No MD5 hash generation algorithm found by the JVM.
-			logger.log(Level.SEVERE, "Logging in Usuario \"" + Usuarioname + "\" triggered an exception during MD5 hash generation.", e);
+			logger.log(Level.SEVERE, "Logging in Usuario \"" + username + "\" triggered an exception during MD5 hash generation.", e);
 			throw new LoginFailedException(LoginFailedException.LoginFailedReason.MD5_ERROR);
 		}
 	}

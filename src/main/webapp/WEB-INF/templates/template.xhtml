@@ -3,8 +3,9 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui" template="/admin.xhtml">
-
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" template="/admin.xhtml">
+    
     <ui:define name="head">
         <title>VixCourts</title>
     </ui:define>
@@ -23,11 +24,6 @@
             <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
                     <i class="fa fa-home"></i>
                     <span><h:outputText value="#{msgsCore['core.menu.home']}" /></span>
-                </p:link>
-            </li>
-            <li><p:link outcome="/core/login/index" onclick="clearBreadCrumbs()">
-                    <i class="fa fa-key"></i>
-                    <span><h:outputText value="#{msgsCore['core.menu.login']}" /></span>
                 </p:link>
             </li>
             <li class="header"><h:outputText value="#{msgsCore['core.menu.team']}" /></li>
@@ -65,13 +61,47 @@
 			</li>
        	</ul>
     </ui:define>
-
-    <ui:define name="top-menu">
     
+    <ui:define name="top-menu">
+        <style type="text/css">
+	        #layout-menu_menu {
+	            z-index: 9997!important;
+	        }
+	        #layout-menu_menu span.ui-menuitem-text {
+	            margin-left: 2px;
+	        }
+    	</style>
+    
+    	<ul class="nav navbar-nav">
+        	<li class="dropdown user user-menu">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                	<pe:gravatar id="userImage" value="nonexisting"/>
+                	<span class="hidden-xs">#{manageLogonController.currentUser}</span>
+            	</a>
+            	<ul class="dropdown-menu">
+                	<li class="user-header">
+                    	<div class="hidden-xs">
+                        	<pe:gravatar style="border-radius: 50%" value="rmpestano@gmail.com"/>
+                    	</div>
+                    	<p>
+                        	#{manageLogonController.currentUser}
+                        	<small>Subtitle</small>
+                    	</p>
+                	</li>
+                	<li class="user-footer">
+                    	<h:form prependId="false">
+                        	<div class="pull-left">
+                            	<p:commandLink styleClass="btn btn-danger" value="Change password"/>
+                        	</div>
+                    	</h:form>
+                	</li>
+            	</ul>
+        	</li>
+      	</ul>
     </ui:define>
 
     <ui:define name="footer">
-    <h:outputText value="#{msgs['text.developedBy']}" escape="false" />
-	<div class="pull-right hidden-xs" style="color: gray"><i>Beta Version</i></div>
-</ui:define>
+    	<h:outputText value="#{msgs['text.developedBy']}" escape="false" />
+		<div class="pull-right hidden-xs" style="color: gray"><i>Beta Version</i></div>
+	</ui:define>
 </ui:composition>

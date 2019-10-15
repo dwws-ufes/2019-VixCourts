@@ -32,19 +32,6 @@
 			<p:outputLabel for="emailField" value="#{msgsCore['manageUsuarios.field.email']} " />
 			<p:inputText id="emailField" value="#{manageUsuariosController.selectedEntity.email}" style="width: 100%;" />
 			 
-			<h:outputLabel for="passwordField" value="#{msgsCore['manageUsuarios.field.password']}" />
-	        <p:password id="passwordField" value="#{manageUsuariosController.entityPassword}" 
-	        	feedback="true" inline="true" style="width: 100%;"	
-	        	required="true" />
-	
-	        <h:outputLabel for="repeatPasswordField" value="#{msgsCore['manageUsuarios.field.repeatPassword']} " />
-	        <p:password id="repeatPasswordField" value="#{manageUsuariosController.passwordConfirmation}"
-	         	required="true" style="width: 100%;" >
-         		<f:ajax event="blur" render=":globalMessages" 
-         			listener="#{manageUsuariosController.ajaxCheckPasswords}" 
-         			execute=":entitiesForm:passwordField :entitiesForm:repeatPasswordField"
-         		/>
-       		</p:password>
 		</p:panelGrid>
 		
 		 
