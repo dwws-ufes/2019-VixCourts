@@ -23,4 +23,28 @@ public class Agendamento extends PersistentObjectSupport implements Comparable<A
 		return 0;
 	}
 
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
+
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public Date getHoraFim() {
+		return horaFim;
+	}
+
+	public void setHoraFim(Date horaFim) {
+		this.horaFim = horaFim;
+	}
+
+	public Quadra getQuadraReservada() {
+		return quadraReservada;
+	}
+
+	public void setQuadraReservada(Quadra quadraReservada) {
+		this.quadraReservada = quadraReservada;
+	}
+
 }

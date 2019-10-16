@@ -18,6 +18,7 @@
 	<!-- Defines the default locale. -->
 	<locale-config>
 		<default-locale>en-US</default-locale>
+		<supported-locale>en-US</supported-locale>
 	</locale-config>
 	
 	<resource-bundle>

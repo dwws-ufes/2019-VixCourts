@@ -26,9 +26,17 @@
 <ui:define name="body">
 	<h:form id="entitiesForm">
 		<p:panelGrid columns="2" columnClasses="ui-grid-col-4,ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="nameField" value="#{msgsCore['manageAgendamentos.field.name']} " />
-			<p:inputText id="nameField" value="#{manageAgendamentosController.selectedEntity.name}" style="width: 100%;" />
+			<p:outputLabel for="nameField" value="#{msgsCore['manageAgendamentos.field.horaInicio']} " />
+			<p:inputText id="nameField" value="#{manageAgendamentosController.selectedEntity.horaInicio}"  style="width: 100%;" />
+			<p:outputLabel for="nameField" value="#{msgsCore['manageAgendamentos.field.horaFim']} " />
+			<p:inputText id="nameField" value="#{manageAgendamentosController.selectedEntity.horaFim}" style="width: 100%;" />
+			<p:outputLabel for="quadraReservadaField" value="#{msgsCore['manageAgendamentos.field.quadraReservada']} " />
+			<p:selectOneMenu id="quadraReservadaField" value="#{manageAgendamentosController.selectedEntity.quadraReservada}" style="width: 100%;" >
+            	<f:selectItem itemLabel="Select One" itemValue="" />
+        	</p:selectOneMenu>
 		</p:panelGrid>
+		
+			
 		<p:commandButton id="cancelButton" value="#{msgs['jbutler.crud.button.cancel']}" icon="fa fa-close"
 			action="#{manageAgendamentosController.list}" immediate="true" rendered="#{! manageAgendamentosController.readOnly}" />
 		<p:commandButton id="saveButton" value="#{msgs['jbutler.crud.button.save']}" icon="fa fa-save" action="#{manageAgendamentosController.save}"
