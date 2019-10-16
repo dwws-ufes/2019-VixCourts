@@ -29,8 +29,14 @@
 			<f:facet name="header">
 				<h:outputText value="#{msgsCore['manageAgendamentos.text.entities']}" />
 			</f:facet>
-			<p:column headerText="#{msgsCore['manageAgendamentos.field.name']}">
-				<h:outputText value="#{entity.name}" />
+			<p:column headerText="#{msgsCore['manageAgendamentos.field.horaInicio']}">
+				<h:outputText value="#{entity.horaInicio}" />
+			</p:column>
+			<p:column headerText="#{msgsCore['manageAgendamentos.field.horaFim']}">
+				<h:outputText value="#{entity.horaFim}" />
+			</p:column>
+			<p:column headerText="#{msgsCore['manageAgendamentos.field.quadraReservada']}">
+				<h:outputText value="#{entity.quadraReservada}" />
 			</p:column>
 			<f:facet name="footer">
 				<h:panelGroup id="buttonsGroup">
