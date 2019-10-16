@@ -64,9 +64,6 @@
     </h:head>
 
     <h:body styleClass="hold-transition login-page">
-        <p:growl sticky="true">
-			<p:autoUpdate/>
-		</p:growl>
         <div id="loader" class="load-bar" style="display: none">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -95,23 +92,20 @@
                         <i class="fa fa-envelope form-control-feedback" ></i>
                     </div>
                     <div class="form-group has-feedback">
-                        <p:inputText value="#{manageLogonController.password}" type="password" styleClass="form-control"
+                        <p:inputText id="passwordField" value="#{manageLogonController.password}" type="password" styleClass="form-control"
                                      placeholder="Password" required="true"
                                      requiredMessage="Password is required."/>
                         <i class="fa fa-lock form-control-feedback" style="font-size: 18px"></i>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <p:selectBooleanCheckbox itemLabel="Remember Me" value="#{manageLogonController.remember}"/>
-                        </div>
-                        <p:spacer height="10"/>
-                        <div class="col-xs-12">
-                            <p:commandButton styleClass="btn btn-success btn-block" action="#{manageLogonController.login}" onclick="showBar()" oncomplete="if(args.validationFailed){hideBar()}"
-                                             value="Sign In" update="@form"/>
-                        </div>
+                    <p:spacer height="10"/>
+                    <div class="col-xs-12">
+        	            <p:commandButton styleClass="btn btn-success btn-block" action="#{manageLogonController.login}"
+        	            	 onclick="showBar()" oncomplete="if(args.validationFailed){hideBar()}" value="Sign In" update="@form"/>
                     </div>
                 </h:form>
+                <p:separator/>
 
+				<!--
                 <div class="social-auth-links text-center">
                     <p>- OR -</p>
                     <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i
@@ -121,15 +115,16 @@
                             class="fa fa-google-plus"></i> Sign in using
                         Google+</a>
                 </div>
+                -->
                 <!-- /.social-auth-links -->
+                 
 
 				<div class="text-center">
-					<p:link outcome="/index">I forgot my password</p:link><br/>
+					<p:link outcome="/public/change-password">I forgot my password</p:link><br/>
 					<p:link outcome="/public/registration">Register a new membership</p:link>
 				</div>
 				
             </div>
-            <!-- /.login-box-body -->
         </div>
         <adm:ripple />
         <h:outputScript library="js" name="admintemplate.js" target="head"/>

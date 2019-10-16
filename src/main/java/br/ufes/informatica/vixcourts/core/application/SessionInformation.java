@@ -36,4 +36,5 @@ public interface SessionInformation extends Serializable {
 	 *             If the username is unknown or the password is incorrect.
 	 */
 	void login(String username, String password) throws LoginFailedException;
+	void logout();
 }

@@ -38,12 +38,17 @@ public class SessionInformationService implements SessionInformation {
 	private UsuarioDAO UsuarioDAO;
 
 	/** The current Usuario logged in. */
-	private Usuario currentUsuario;
+	private Usuario currentUser;
 
-	/** @see br.org.feees.sigme.core.application.SessionInformation#getCurrentUsuario() */
+	/** @see br.org.feees.sigme.core.application.SessionInformation#getCurrentUser() */
 	@Override
 	public Usuario getCurrentUser() {
-		return currentUsuario;
+		return currentUser;
+	}
+	
+	@Override
+	public void logout() {
+		currentUser = null;
 	}
 
 	/** @see br.org.feees.sigme.core.application.SessionInformation#login(java.lang.String, java.lang.String) */
@@ -64,14 +69,14 @@ public class SessionInformationService implements SessionInformation {
 
 				// Login successful. Registers the current Usuario in the session.
 				logger.log(Level.FINE, "Usuario \"{0}\" successfully logged in.", username);
-				currentUsuario = Usuario;
+				currentUser = Usuario;
 				pwd = null;
 
 				// Registers the Usuario login.
 				Date now = new Date(System.currentTimeMillis());
-				logger.log(Level.FINER, "Setting last login date for Usuario with username \"{0}\" as \"{1}\"...", new Object[] { currentUsuario.getEmail(), now });
-				currentUsuario.setLastLoginDate(now);
-				UsuarioDAO.save(currentUsuario);
+				logger.log(Level.FINER, "Setting last login date for Usuario with username \"{0}\" as \"{1}\"...", new Object[] { currentUser.getEmail(), now });
+				currentUser.setLastLoginDate(now);
+				UsuarioDAO.save(currentUser);
 			}
 			else {
 				// Passwords don't match.
@@ -81,12 +86,12 @@ public class SessionInformationService implements SessionInformation {
 		}
 		catch (PersistentObjectNotFoundException e) {
 			// No Usuario was found with the given username.
-			logger.log(Level.INFO, "Usuario \"{0}\" not logged in: no registered Usuario found with given username.", username);
+			logger.log(Level.INFO, "Usuario \"{0}\" not logged in: no registered user found with given username.", username);
 			throw new LoginFailedException(e, LoginFailedException.LoginFailedReason.UNKNOWN_USERNAME);
 		}
 		catch (MultiplePersistentObjectsFoundException e) {
 			// Multiple Usuarios were found with the same username.
-			logger.log(Level.WARNING, "Usuario \"{0}\" not logged in: there are more than one registered Usuario with the given username.", username);
+			logger.log(Level.WARNING, "Usuario \"{0}\" not logged in: there are more than one registered user with the given username.", username);
 			throw new LoginFailedException(e, LoginFailedException.LoginFailedReason.MULTIPLE_USERS);
 		}
 		catch (EJBTransactionRolledbackException e) {

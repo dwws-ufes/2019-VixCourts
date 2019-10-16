@@ -2,6 +2,8 @@ package br.ufes.informatica.vixcourts.core.application;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -16,6 +18,9 @@ public class RegistrationServiceBean implements RegistrationService {
 	/** Serialization id. */
 	private static final long serialVersionUID = 1L;/** The DAO for User objects. */
 	
+	/** The logger. */
+	private static final Logger logger = Logger.getLogger(RegistrationServiceBean.class.getCanonicalName());
+	
 	@EJB
 	private UsuarioDAO userDAO;
 
@@ -29,21 +34,21 @@ public class RegistrationServiceBean implements RegistrationService {
 			Date now = new Date(System.currentTimeMillis());
 			user.setLastUpdateDate(now);
 			user.setCreationDate(now);
-			System.out.println("user's last update date have been set as: {0}" + new Object[] { now });
+			logger.log(Level.FINE, "User's last update date have been set as: {0}",new Object[] { now });
 
 			// Saves the user.
-			System.out.println("Persisting user data...\n\t- Short name = {0}\n\t- Last update date = {1}" + new Object[] { user.getNome(), user.getLastUpdateDate() });
+			logger.log(Level.FINER, "Persisting user data...\n\t- Short name = {0}\n\t- Last update date = {1}", new Object[] { user.getNome(), user.getLastUpdateDate() });
 			userDAO.save(user);
-			System.out.println("The useristrator has been saved: {0} ({1})" + new Object[] { user.getNome(), user.getEmail() });
+			logger.log(Level.FINE, "The useristrator has been saved: {0} ({1})", new Object[] { user.getNome(), user.getEmail() });
 
 		}
 		catch (NoSuchAlgorithmException e) {
 			// Logs and rethrows the exception for the controller to display the error to the user.
-			System.out.println("Could not find MD5 algorithm for password encription!" + e);
+			logger.log(Level.SEVERE, "Could not find MD5 algorithm for password encription!", e);
 		}
 		catch (Exception e) {
 			// Logs and rethrows the exception for the controller to display the error to the user.
-			System.out.println("Exception during system installation!");
+			logger.log(Level.SEVERE, "Exception during system installation!");
 		}
 		
 	}

@@ -1,31 +1,35 @@
 package br.ufes.informatica.vixcourts.core.controller;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.omnifaces.util.Faces;
 
-import br.ufes.inf.nemo.jbutler.ejb.application.CrudService;
 import br.ufes.inf.nemo.jbutler.ejb.controller.JSFController;
-import br.ufes.informatica.vixcourts.core.application.ManageUsuariosService;
 import br.ufes.informatica.vixcourts.core.application.RegistrationService;
 import br.ufes.informatica.vixcourts.core.domain.Usuario;
 
 @Named
 @ConversationScoped
-public class registrationController extends JSFController {
+public class RegistrationController extends JSFController {
 	
 	/** Serialization id. */
 	private static final long serialVersionUID = 1L;
 	
+	/** The logger. */
+	private static final Logger logger = Logger.getLogger(RegistrationController.class.getCanonicalName());
+	
 
-	/** Input: the administrator being registered during the installation. */
+	/** Input: the user being registered. */
 	private Usuario user = new Usuario();
 	
-	/** Input: the repeated password for the admininstrator registration. */
+	/** Input: the repeated password for the user registration. */
 	private String repeatPassword;
 	
 	@EJB
@@ -41,7 +45,7 @@ public class registrationController extends JSFController {
 		this.repeatPassword = repeatPassword;
 	}
 
-	/** Getter for admin. */
+	/** Getter for user. */
 	public Usuario getUser() {
 		return user;
 	}
@@ -63,16 +67,16 @@ public class registrationController extends JSFController {
 	private boolean checkPasswords() {
 		if (((repeatPassword != null) && (!repeatPassword.equals(user.getPassword()))) || ((repeatPassword == null) && (user.getPassword() != null))) {
 			System.out.println("Password and repeated password are not the same");
-			addGlobalI18nMessage("msgsCore", FacesMessage.SEVERITY_WARN, "installSystem.error.passwordsDontMatch.summary", "installSystem.error.passwordsDontMatch.detail");
+			addGlobalI18nMessage("msgsCore", FacesMessage.SEVERITY_WARN, "Passwords don't match. Try again.");
 			return false;
 		}
 		return true;
 	}
 	
 	/**
-	 * Registers the administrator as one of the steps of system installation and moves to the next step.
+	 * Registers the user
 	 * 
-	 * @return The path to the web page that shows the next step in the installation process.
+	 * @return The path to the login web page 
 	 */
 	public void registerUser() {
 		System.out.println("Received input data:\n\t- admin.name = {0}\n\t- admin.email = {1}" + new Object[] { user.getNome(), user.getEmail() });
@@ -84,12 +88,22 @@ public class registrationController extends JSFController {
 		try {
 			registrationService.registerUser(user);
 			Faces.getExternalContext().getFlash().setKeepMessages(true);
-	        Faces.redirect("index.xhtml");
+	        Faces.redirect("login.xhtml");
 		}
 		catch (Exception e) {
-			System.out.println("System installation threw exception" +  e);
+			logger.log(Level.SEVERE, "User register threw exception", e);
 			addGlobalI18nMessage("msgsCore", FacesMessage.SEVERITY_FATAL, "installSystem.error.installFailed.summary", "installSystem.error.installFailed.detail");
 			return;
+		}
+	}
+	
+	public void cancel() {
+		Faces.getExternalContext().getFlash().setKeepMessages(true);
+        try {
+			Faces.redirect("login.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			logger.log(Level.SEVERE, "Redirection to index page threw a exceptioon", e);
 		}
 	}
 	
