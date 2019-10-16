@@ -7,5 +7,6 @@ import br.ufes.informatica.vixcourts.core.domain.Quadra;
 
 @Local
 public interface QuadraDAO extends BaseDAO<Quadra> {
+	Quadra retrieveByName(String name);
 
 }
