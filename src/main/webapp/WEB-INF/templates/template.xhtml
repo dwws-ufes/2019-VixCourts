@@ -75,17 +75,17 @@
     	<ul class="nav navbar-nav">
         	<li class="dropdown user user-menu">
             	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                	<pe:gravatar id="userImage" value="nonexisting"/>
+                	<img id="userImage" src="#{resource[ 'images:default-user.png']}"/>
                 	<span class="hidden-xs">#{manageLogonController.currentUser}</span>
             	</a>
             	<ul class="dropdown-menu">
                 	<li class="user-header">
                     	<div class="hidden-xs">
-                        	<pe:gravatar style="border-radius: 50%" value="rmpestano@gmail.com"/>
+                        	<img id="userImage" width="50%" height="50%" src="#{resource[ 'images:default-user.svg']}"/>
                     	</div>
                     	<p>
                         	#{manageLogonController.currentUser}
-                        	<small>Subtitle</small>
+                        	<!-- <small>Subtitle</small>-->
                     	</p>
                 	</li>
                 	<li class="user-footer">
@@ -93,6 +93,11 @@
                         	<div class="pull-left">
                             	<p:commandLink styleClass="btn btn-danger" value="Change password"/>
                         	</div>
+                        	<div class="pull-right">
+                            <p:commandLink id="logout" title="Logoff">
+                                <i class="fa fa-sign-out fa-2x"></i>
+                            </p:commandLink>
+                        </div>
                     	</h:form>
                 	</li>
             	</ul>

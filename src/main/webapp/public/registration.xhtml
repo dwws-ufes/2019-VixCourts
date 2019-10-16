@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:adm="http://github.com/adminfaces"
+    template="/WEB-INF/templates/template.xhtml">
+
+<ui:define name="title">
+	<h:outputText value="#{msgsCore['manageUsuarios.title.create']}"/>
+</ui:define>
+
+<ui:define name="description">
+	<h:outputText value="#{msgsCore['manageUsuarios.title.create.description']}"/>
+</ui:define>
+
+<ui:define name="body">
+	<h:form id="entitiesForm">
+		<p:panelGrid columns="2" columnClasses="ui-grid-col-4,ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank">
+			<p:outputLabel for="nameField" value="#{msgsCore['manageUsuarios.field.name']} " />
+			<p:inputText id="nameField" value="#{registrationController.user.nome}" style="width: 100%;" />
+			
+			<p:outputLabel for="emailField" value="#{msgsCore['manageUsuarios.field.email']} " />
+			<p:inputText id="emailField" value="#{registrationController.user.email}" style="width: 100%;" />
+			
+			<h:outputLabel for="passwordField" value="#{msgsCore['manageUsuarios.field.password']}" />
+	        <p:password id="passwordField" value="#{registrationController.user.password}" 
+	        	feedback="true" inline="true" style="width: 100%;"	      
+	        	required="true" />
+
+ 	        <h:outputLabel for="repeatPasswordField" value="#{msgsCore['manageUsuarios.field.repeatPassword']} " />
+	        <p:password id="repeatPasswordField" value="#{registrationController.repeatPassword}"
+	         	required="true" style="width: 100%;" >
+         		<f:ajax event="blur" render=":globalMessages" 
+         			listener="#{registrationController.ajaxCheckPasswords}" 
+         			execute=":entitiesForm:passwordField :entitiesForm:repeatPasswordField"
+         		/>
+       		</p:password>
+			 
+		</p:panelGrid>
+		
+		 
+		<p:commandButton id="cancelButton" value="#{msgs['jbutler.crud.button.cancel']}" icon="fa fa-close"
+			action="#{registrationController.cancel}" immediate="true"/>
+		<p:commandButton id="saveButton" value="#{msgs['jbutler.crud.button.save']}" icon="fa fa-save" 
+			action="#{registrationController.registerUser}"
+		/>
+		<p:defaultCommand target="saveButton" />
+	</h:form>
+</ui:define>
+</ui:composition>

@@ -48,6 +48,13 @@
 	</dependency>
 	
 	<dependency>
+		<groupId>org.primefaces.extensions</groupId>
+		<artifactId>primefaces-extensions</artifactId>
+		<version>6.1.1</version>
+    	<!-- only for gravatar, adminfaces doesn't depend on extensions-->
+   	</dependency>
+	
+	<dependency>
 	    <groupId>br.ufes.inf.nemo</groupId>
 	    <artifactId>jbutler-wp</artifactId>
 	    <version>1.2.7</version>

@@ -11,11 +11,6 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon.ico']}"/>
-        <link rel="shortcut icon" type="image/x-icon" href="#{resource['fui:compositionavicon/favicon-16x16.png']}" sizes="16x16"/>
-        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-32x32.png']}" sizes="32x32"/>
-        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-96x96.png']}" sizes="96x96"/>
-        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-144x144.png']}" sizes="144x144"/>
         <meta name="theme-color" content="#444"/>
         <meta name="mobile-web-app-capable" content="yes"/>
 
@@ -84,7 +79,7 @@
         </p:dialog>
 
         <div class="login-box">
-            <div class="login-logo f-white">
+            <div class="login-logo" style="text-align: center !important">
                 <p:link href="index.xhtml" style="color: white !important"><b>Vix</b>Courts</p:link>
             </div>
             <!-- /.login-logo -->
@@ -94,14 +89,14 @@
                     <p:messages closable="true"/>
 
                     <div class="form-group has-feedback">
-                        <p:inputText value="#{manageLogonController.email}" type="email" styleClass="form-control" placeholder="Just type any value"
+                        <p:inputText value="#{manageLogonController.email}" type="email" styleClass="form-control" placeholder="E-mail"
                                      required="true"
                                      requiredMessage="Email is required."/>
                         <i class="fa fa-envelope form-control-feedback" ></i>
                     </div>
                     <div class="form-group has-feedback">
                         <p:inputText value="#{manageLogonController.password}" type="password" styleClass="form-control"
-                                     placeholder="Just type any value" required="true"
+                                     placeholder="Password" required="true"
                                      requiredMessage="Password is required."/>
                         <i class="fa fa-lock form-control-feedback" style="font-size: 18px"></i>
                     </div>
@@ -128,9 +123,11 @@
                 </div>
                 <!-- /.social-auth-links -->
 
-                <a href="#">I forgot my password</a><br/>
-                <a href="#" class="text-center">Register a new membership</a>
-
+				<div class="text-center">
+					<p:link outcome="/index">I forgot my password</p:link><br/>
+					<p:link outcome="/public/registration">Register a new membership</p:link>
+				</div>
+				
             </div>
             <!-- /.login-box-body -->
         </div>

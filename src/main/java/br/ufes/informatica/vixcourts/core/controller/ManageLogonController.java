@@ -16,7 +16,7 @@ import java.io.Serializable;
 @SessionScoped
 @Specializes
 public class ManageLogonController extends AdminSession implements Serializable {
-
+	
 	private static final long serialVersionUID = 1L;
 	
 	private String currentUser;
