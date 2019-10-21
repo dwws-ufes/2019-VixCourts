@@ -16,7 +16,7 @@
 </ui:define>
 
 <ui:define name="body">
-	<adm:breadcrumb link="/core/manageAgendamentos/index" title="#{msgsCore['manageAgendamentos.title']}" />
+<adm:breadcrumb link="/core/manageAgendamentos/index" title="#{msgsCore['manageAgendamentos.title']}" />
 	<h:form id="listingForm">
 		<p:dataTable id="entitiesDataTable" var="entity" value="#{manageAgendamentosController.lazyEntities}"
 			selection="#{manageAgendamentosController.selectedEntity}" selectionMode="single" paginator="true"
@@ -35,11 +35,11 @@
 			<p:column headerText="#{msgsCore['manageAgendamentos.field.horaFim']}">
 				<h:outputText value="#{entity.horaFim}" />
 			</p:column>
-			<!-- 
+			 
 			<p:column headerText="#{msgsCore['manageAgendamentos.field.quadraReservada']}">
-				<h:outputText value="#{entity.quadraReservada}" />
+				<h:outputText value="#{entity.quadra.name}" />
 			</p:column>
-			 -->
+			
 			<f:facet name="footer">
 				<h:panelGroup id="buttonsGroup">
 					<p:commandButton action="#{manageAgendamentosController.create}" icon="fa fa-plus" value="#{msgs['jbutler.crud.button.create']}" />

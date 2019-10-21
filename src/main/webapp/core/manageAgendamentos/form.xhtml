@@ -27,17 +27,20 @@
 	<h:form id="entitiesForm">
  		<p:panelGrid columns="2" columnClasses="ui-grid-col-1,ui-grid-col-11" layout="grid" styleClass="ui-panelgrid-blank">
  		
- 			<p:outputLabel for="quadraField" value="#{msgsCore['manageAgendamentos.field.quadraReservada']} " />
- 			<p:selectOneMenu id="quadraField" value="#{manageAgendamentosController.selectedEntity.quadra}"
- 				converter="quadraConverter" style="width: 100%">
-		     	<f:selectItems value="#{manageAgendamentosController.quadras}" var="quadra" itemLabel="#{quadra.name}" itemValue="#{quadra}"/>
-		    </p:selectOneMenu>
+ 			
 		    
 			<p:outputLabel for="horaInicioField" value="#{msgsCore['manageAgendamentos.field.horaInicio']} " />
        		<p:datePicker id="horaInicioField" value="#{manageAgendamentosController.selectedEntity.horaInicio}" showTime="true"/>
        		
 			<p:outputLabel for="horaFimField" value="#{msgsCore['manageAgendamentos.field.horaFim']} " />
        		<p:datePicker id="horaFimField" value="#{manageAgendamentosController.selectedEntity.horaFim}" showTime="true"/>
+       		
+       		<p:outputLabel for="quadraField" value="#{msgsCore['manageAgendamentos.field.quadraReservada']} " />
+ 			<p:selectOneMenu id="quadraField" value="#{manageAgendamentosController.selectedEntity.quadra}"
+ 				converter="quadraConverter" style="width: 100%">
+		     	<f:selectItems value="#{manageAgendamentosController.quadras}" var="quadra" itemLabel="#{quadra.name}" itemValue="#{quadra}"/>
+		    </p:selectOneMenu>
+       		
  		</p:panelGrid>
 		<p:commandButton id="cancelButton" value="#{msgs['jbutler.crud.button.cancel']}" icon="fa fa-close"
 			action="#{manageAgendamentosController.list}" immediate="true" rendered="#{! manageAgendamentosController.readOnly}" />
@@ -47,5 +50,32 @@
 		<p:commandButton id="backButton" value="#{msgs['jbutler.crud.button.back']}" icon="fa fa-arrow-circle-left"
 			action="#{manageAgendamentosController.list}" immediate="true" rendered="#{manageAgendamentosController.readOnly}" />
 	</h:form>
+	
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDmJfksJcA6A3KLPxnbD9dFbHd5U2N8MSs"></script>
+	
+     
+<!--      AIzaSyDmJfksJcA6A3KLPxnbD9dFbHd5U2N8MSs -->
+     
+	<p:gmap center="-20.302190, -40.301970" zoom="13" type="HYBRID" style="width:100%;height:500px"
+		model="#{manageAgendamentosController.mapModel}" widgetVar="map"
+	>
+        
+        <p:ajax event="overlaySelect" listener="#{manageAgendamentosController.onMarkerSelect}"/>
+          
+    </p:gmap>
+    
+    <script type="text/javascript">
+
+// 	var markers = [];
+
+// 	map.addListener('tilesloaded', function () { 
+
+// 			console.log("Map loaded");
+
+// 		 });
+	
+	
+     </script>
+	
 </ui:define>
 </ui:composition>
