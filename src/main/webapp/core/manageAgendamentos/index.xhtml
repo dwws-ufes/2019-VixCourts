@@ -58,7 +58,7 @@
 				rendered="#{not empty manageAgendamentosController.trashCan}">
 				<p:dataTable id="trashDataTable" var="entity" value="#{manageAgendamentosController.trashCan}">
 					<p:column headerText="#{msgsCore['manageAgendamentos.field.name']}">
-						<h:outputText value="#{entity.name}" />
+						<h:outputText value="#{entity.quadra.name}" />
 					</p:column>
 					<f:facet name="footer">
 						<p:commandButton action="#{manageAgendamentosController.cancelDeletion}" value="#{msgs['jbutler.crud.button.cancelDeletion']}"

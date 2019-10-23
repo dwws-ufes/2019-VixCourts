@@ -1,5 +1,6 @@
 package br.ufes.informatica.vixcourts.core.application;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.security.PermitAll;
@@ -32,6 +33,14 @@ public class ManageAgendamentosServiceBean extends CrudServiceBean<Agendamento> 
 	public List<Quadra> listQuadras() {
 		return quadraDAO.retrieveAll();
 	}
+
+	@Override
+	public List<Agendamento> verificarDisponibilidade(Date horaInicio, Date horaFim, long quadra_id) {
+		
+		return agendamentoDAO.verificarDisponibilidade(horaInicio, horaFim, quadra_id);
+		
+	}
+
 	
 
 }

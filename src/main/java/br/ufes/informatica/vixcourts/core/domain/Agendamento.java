@@ -21,13 +21,8 @@ public class Agendamento extends PersistentObjectSupport implements Comparable<A
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date horaFim;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date horaInicio2;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date horaFim2;
-	
-	
+	@ManyToOne
+	private Usuario usuario;
 	
 	@NotNull
 	@ManyToOne
@@ -54,22 +49,6 @@ public class Agendamento extends PersistentObjectSupport implements Comparable<A
 	public void setHoraFim(Date horaFim) {
 		this.horaFim = horaFim;
 	}
-	
-	public Date getHoraInicio2() {
-		return horaInicio2;
-	}
-
-	public void setHoraInicio2(Date horaInicio2) {
-		this.horaInicio2 = horaInicio2;
-	}
-
-	public Date getHoraFim2() {
-		return horaFim2;
-	}
-
-	public void setHoraFim2(Date horaFim2) {
-		this.horaFim2 = horaFim2;
-	}
 
 	public Quadra getQuadra() {
 		return quadra;
@@ -77,6 +56,14 @@ public class Agendamento extends PersistentObjectSupport implements Comparable<A
 
 	public void setQuadra(Quadra quadra) {
 		this.quadra = quadra;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

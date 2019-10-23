@@ -1,5 +1,6 @@
 package br.ufes.informatica.vixcourts.core.application;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -12,6 +13,8 @@ import br.ufes.informatica.vixcourts.core.domain.Quadra;
 public interface ManageAgendamentosService extends CrudService<Agendamento> {
 	
 	List<Quadra> listQuadras();
+	
+	List<Agendamento> verificarDisponibilidade(Date horaInicio, Date horaFim, long quadra_id);
 
 }
 
